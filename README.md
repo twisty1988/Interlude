@@ -5,7 +5,8 @@
 
 
 
-<img src='art/art01.png'/ width=200px> <img src='art/art02.png'/ width=200px>
+
+<img src='art/art01.png' width=200px/> <img src='art/art02.png' width=200px/>
 
 `    compile 'com.twisty.interlude:1.0.0'
 `
@@ -73,4 +74,4 @@ enum class IndicatorType {
             SemiCircleSpinIndicator,
 }
 ```
-<img src='art/avi.gif') width=200px>
+<img src='art/avi.gif' width=200px/>
