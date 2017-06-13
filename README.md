@@ -6,7 +6,7 @@
 
 
 
-<img src='art/art01.png' width=200px/> <img src='art/art02.png' width=200px/>
+<img src='art/art01.png' width=350px/> <img src='art/art02.png' width=350px/>
 
 `    compile 'com.twisty.interlude:1.0.0'
 `
@@ -42,6 +42,9 @@ interlude.dismiss()
 
 `IndicatorType` 对应[AVLoadingIndicatorView](https://github.com/81813780/AVLoadingIndicatorView)的各个`Indicator`
 
+<img src='art/avi.gif' width=400px/>
+
+
 ```
 enum class IndicatorType {
             BallPulseIndicator,
@@ -74,4 +77,3 @@ enum class IndicatorType {
             SemiCircleSpinIndicator,
 }
 ```
-<img src='art/avi.gif' width=200px/>
