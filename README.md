@@ -10,7 +10,7 @@
 
 ## 使用方法
 
-`    compile 'com.twisty.interlude:1.0.0'
+`    compile 'com.twisty:interlude:1.0.0'
 `
 ```
 //construct
