@@ -8,6 +8,8 @@
 
 <img src='art/art01.png' width=350px/> <img src='art/art02.png' width=350px/>
 
+## 使用方法
+
 `    compile 'com.twisty.interlude:1.0.0'
 `
 ```
