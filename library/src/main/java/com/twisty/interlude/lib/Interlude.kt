@@ -16,10 +16,10 @@ import com.wang.avi.AVLoadingIndicatorView
  * Created by twisty on 2017/6/12.<br>
  *
  */
-class Interlude(val fm: FragmentManager) : DialogFragment() {
+class Interlude : DialogFragment() {
 
-    var customIndicator: String? = null
-    var indicatorType: IndicatorType = IndicatorType.BallPulseIndicator
+    private var customIndicator: String? = null
+    var indicatorType: IndicatorType = IndicatorType.LineScalePulseOutIndicator
     var backGroundColorResource: Int = android.R.color.transparent
     var indicatorColorResource: Int = R.color.defaultIndicatorColor
     var cancelCallback: ((dialog: DialogInterface?) -> Unit)? = null
@@ -56,9 +56,11 @@ class Interlude(val fm: FragmentManager) : DialogFragment() {
         window.attributes = windowParams
     }
 
-
-    fun show() {
-        show(fm, "")
+    fun isShowing(): Boolean {
+        return this.dialog != null && this.dialog.isShowing
     }
 
+    fun show(fm: FragmentManager) {
+        show(fm, "Interlude")
+    }
 }

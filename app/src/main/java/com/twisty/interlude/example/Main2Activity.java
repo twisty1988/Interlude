@@ -15,7 +15,7 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        Interlude interlude = new Interlude(getSupportFragmentManager());
+        Interlude interlude = new Interlude();
         interlude.setIndicatorType(IndicatorType.BallGridBeatIndicator);
         interlude.setDismissCallback(dialogInterface -> {
             Log.e(getLocalClassName(), "Dismiss");
@@ -26,8 +26,10 @@ public class Main2Activity extends AppCompatActivity {
             return null;
         });
         findViewById(R.id.layout).setOnClickListener(v -> {
-            interlude.show();
-            new Handler().postDelayed(interlude::dismiss, 5000);
+            interlude.show(getSupportFragmentManager());
+            new Handler().postDelayed(() -> {
+                if (interlude.isShowing()) interlude.dismiss();
+            }, 5000);
         });
     }
 }

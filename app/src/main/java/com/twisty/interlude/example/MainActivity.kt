@@ -10,7 +10,7 @@ import com.twisty.interlude.lib.Interlude
 import org.jetbrains.anko.AnkoLogger
 
 class MainActivity : AppCompatActivity(), AnkoLogger {
-    var interlude: Interlude = Interlude(supportFragmentManager)
+    var interlude: Interlude = Interlude()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,9 +30,9 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
         }
         setContentView(R.layout.activity_main)
         findViewById(R.id.view).setOnClickListener {
-            interlude.show()
+            interlude.show(supportFragmentManager)
             Handler().postDelayed({
-                interlude.dismiss()
+                if (interlude.isShowing()) interlude.dismiss()
             }, 5000)
         }
     }
