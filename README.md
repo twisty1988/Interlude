@@ -10,7 +10,7 @@
 
 ## 使用方法
 
-`compile 'com.twisty:interlude:1.0.0-alpha'`
+`compile 'com.twisty:interlude:1.0.2'`
 ```
 //construct
 var interlude: Interlude = Interlude(supportFragmentManager)
@@ -19,7 +19,7 @@ var interlude: Interlude = Interlude(supportFragmentManager)
 with(interlude) {
            dim = 0.1F                                            //dialog弹出时背景变暗程度
            indicatorColorResource = android.R.color.darker_gray  //progress的颜色
-           backGroundColorResource = android.R.color.transparent //dialog的背景色
+           backgroundResource = android.R.color.transparent      //dialog的背景 color或者drawable
            indicatorType = IndicatorType.BallPulseIndicator      //progress的类型
            isCancelable = true                                   //是否可以取消
            canceledOnTouchOutside = false                        //点击界外是否取消
@@ -52,26 +52,32 @@ enum class IndicatorType {
             BallGridPulseIndicator,
             BallClipRotateIndicator,
             BallClipRotatePulseIndicator,
+
             SquareSpinIndicator,
             BallClipRotateMultipleIndicator,
             BallPulseRiseIndicator,
             BallRotateIndicator,
+
             CubeTransitionIndicator,
             BallZigZagIndicator,
             BallZigZagDeflectIndicator,
             BallTrianglePathIndicator,
+
             BallScaleIndicator,
             LineScaleIndicator,
             LineScalePartyIndicator,
             BallScaleMultipleIndicator,
+
             BallPulseSyncIndicator,
             BallBeatIndicator,
             LineScalePulseOutIndicator,
             LineScalePulseOutRapidIndicator,
+
             BallScaleRippleIndicator,
             BallScaleRippleMultipleIndicator,
             BallSpinFadeLoaderIndicator,
             LineSpinFadeLoaderIndicator,
+
             TriangleSkewSpinIndicator,
             PacmanIndicator,
             BallGridBeatIndicator,

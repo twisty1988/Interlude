@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import com.twisty.lib.R
 import com.wang.avi.AVLoadingIndicatorView
 
@@ -18,17 +19,20 @@ import com.wang.avi.AVLoadingIndicatorView
  */
 class Interlude : DialogFragment() {
 
+
     private var customIndicator: String? = null
     var indicatorType: IndicatorType = IndicatorType.LineScalePulseOutIndicator
-    var backGroundColorResource: Int = android.R.color.transparent
+    var backgroundResource: Int = android.R.color.transparent
     var indicatorColorResource: Int = R.color.defaultIndicatorColor
     var cancelCallback: ((dialog: DialogInterface?) -> Unit)? = null
     var dismissCallback: ((dialog: DialogInterface?) -> Unit)? = null
-    var dim: Float = 0.1F
+    var dim: Float = 0.3F
     var canceledOnTouchOutside: Boolean = true
 
+
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        dialog.window.setBackgroundDrawableResource(backGroundColorResource)
+        dialog.window.requestFeature(Window.FEATURE_NO_TITLE)
+        dialog.window.setBackgroundDrawableResource(backgroundResource)
         dialog.setCanceledOnTouchOutside(canceledOnTouchOutside)
         val view = inflater?.inflate(R.layout.loading_indicator, container, false)
         val indicator = view?.findViewById(R.id.progressBar) as AVLoadingIndicatorView
@@ -56,9 +60,7 @@ class Interlude : DialogFragment() {
         window.attributes = windowParams
     }
 
-    fun isShowing(): Boolean {
-        return this.dialog != null && this.dialog.isShowing
-    }
+    fun isShowing(): Boolean = this.dialog != null && this.dialog.isShowing
 
     fun show(fm: FragmentManager) {
         show(fm, "Interlude")

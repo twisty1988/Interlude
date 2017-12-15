@@ -5,7 +5,7 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.twisty.interlude"
         minSdkVersion 14
@@ -33,3 +33,5 @@ dependencies {
     implementation "org.jetbrains.anko:anko-commons:0.10.1"
     implementation project(':library')
 }
+
+apply plugin: 'kotlin-android-extensions'

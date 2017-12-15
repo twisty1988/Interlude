@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".example.Main2Activity">
         </activity>
+        <activity android:name=".example.BaseActivity">
+        </activity>
     </application>
 
 </manifest>
