@@ -62,7 +62,19 @@ class Interlude : DialogFragment() {
 
     fun isShowing(): Boolean = this.dialog != null && this.dialog.isShowing
 
+
     fun show(fm: FragmentManager) {
         show(fm, "Interlude")
+    }
+
+    override fun show(manager: FragmentManager, tag: String) {
+        try {
+            val ft = manager.beginTransaction()
+            if (!this.isAdded) ft.remove(this)
+            ft.add(this, tag)
+            ft.commitAllowingStateLoss()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 }

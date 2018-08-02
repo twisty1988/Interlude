@@ -11,6 +11,13 @@ class MainActivity : BaseActivity(), AnkoLogger {
         setContentView(R.layout.activity_main)
         findViewById(R.id.view).setOnClickListener {
             interlude.show(supportFragmentManager)
+            interlude.show(supportFragmentManager)
+            interlude.show(supportFragmentManager)
+            interlude.show(supportFragmentManager)
+            interlude.show(supportFragmentManager)
+            interlude.show(supportFragmentManager)
+            interlude.show(supportFragmentManager)
+            interlude.show(supportFragmentManager)
             Handler().postDelayed({
                 if (interlude.isShowing()) interlude.dismiss()
             }, 5000)
