@@ -1,0 +1,81 @@
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'org.jetbrains.dokka-android'
+
+def siteUrl = 'https://github.com/twisty1988/Interlude'
+def gitUrl = 'https://github.com/twisty1988/Interlude.git'
+group = "com.twisty" // Maven Group ID for the artifact
+version = "1.0.3"
+project.archivesBaseName = 'interlude'
+
+
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+                name 'interlude'
+                url siteUrl
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'twisty'
+                        name 'twisty'
+                        email 'twisty@vip.qq.com'
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+
+
+
+dokka {
+//    moduleName = project.name
+//    includes = ['Module.md']
+//    impliedPlatforms = ['JVM']
+//    jdkVersion = 8
+
+    outputFormat = 'javadoc'
+    outputDirectory = "$buildDir/javadoc"
+
+}
+
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+artifacts {
+//    archives dokka
+    archives sourcesJar
+}
+
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    configurations = ['archives']
+    pkg {
+        repo = "personal-maven"
+        name = "interlude"
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ["Apache-2.0"]
+        publish = true
+    }
+}

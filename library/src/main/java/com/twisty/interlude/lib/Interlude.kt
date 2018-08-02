@@ -60,7 +60,7 @@ class Interlude : DialogFragment() {
         window.attributes = windowParams
     }
 
-    fun isShowing(): Boolean = this.dialog != null && this.dialog.isShowing
+    fun isShowing(): Boolean = this.isAdded && this.dialog != null && this.dialog.isShowing
 
 
     fun show(fm: FragmentManager) {
